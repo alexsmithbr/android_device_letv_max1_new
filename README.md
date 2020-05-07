@@ -1,3 +1,2 @@
-Copyright 2015 - The CyanogenMod Project
-
-Device configuration for LeTv letv x800 device tree x1
+# android_device_letv_max1
+Lineage

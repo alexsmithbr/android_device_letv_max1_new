@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2009-2015, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2014, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -237,7 +237,7 @@ case "$target" in
                   ;;
         esac
         ;;
-    "msm8994" | "msm8992")
+    "msm8994")
         start_msm_irqbalance
         ;;
     "msm8909")
@@ -255,13 +255,3 @@ case "$emmc_boot"
         fi
     ;;
 esac
-
-#
-# Make modem config folder and copy firmware config to that folder
-#
-rm -rf /data/misc/radio/modem_config
-mkdir /data/misc/radio/modem_config
-chmod 660 /data/misc/radio/modem_config
-cp -r /firmware/image/modem_pr/mbn_ota/* /data/misc/radio/modem_config
-chown -hR radio.radio /data/misc/radio/modem_config
-echo 1 > /data/misc/radio/copy_complete

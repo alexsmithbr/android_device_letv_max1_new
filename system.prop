@@ -1,3 +1,7 @@
+# end build properties
+#
+# from device/letv/max1/system.prop
+#
 #
 # system.prop for plutonium
 #
@@ -13,129 +17,35 @@ persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
-persist.radio.rat_on=combine
+#[+LEUI BEGIN] [BUG][MOBILEP-13058] [Telephony] added
+#ril.subscription.types=NV,RUIM
 ril.subscription.types=RUIM
+#[+LEUI END] [BUG][MOBILEP-13058] [Telephony] added
 DEVICE_PROVISIONED=1
 # Start in global mode
-ro.telephony.default_network=22,22
-persist.radio.multisim.config=dsds
-persist.data.qmi.adb_logmask=0
+#[+LEUI BEGIN] [BUG][MOBILEP-5655] [Telephony] added
+ro.telephony.default_network=22
+#[+LEUI END] [BUG][MOBILEP-5655] [Telephony] added
 
-debug.sf.hw=1
-debug.egl.hw=1
-debug.composition.type=c2d
-persist.hwc.mdpcomp.enable=true
-persist.mdpcomp.4k2kSplit=1
-persist.hwc.mdpcomp.maxpermixer=5
-persist.mdpcomp_perfhint=50
-debug.mdpcomp.logs=0
-persist.metadata_dynfps.disable=true
-persist.hwc.ptor.enable=true
-dalvik.vm.heapsize=36m
-dev.pm.dyn_samplingrate=1
-persist.demo.hdmirotationlock=false
-
-#CEC settings
-ro.hdmi.device_type=4
-persist.sys.hdmi.addr.playback=4
-
-ro.hdmi.enable=true
-persist.speaker.prot.enable=false
-#0 is default(30 min)
-persist.spkr.cal.duration=0
-qcom.hw.aac.encoder=true
-#
-# system props for the cne module
-#
-persist.cne.feature=1
-
-#system props for the MM modules
-
-media.stagefright.enable-player=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-scan=true
-mmp.enable.3g2=true
-mm.enable.smoothstreaming=true
-media.aac_51_output_enabled=true
-
-#3314291: Decimal sum after adding FLAC parser flag 131072
-#37491 is decimal sum of supported codecs in AAL
-#codecs: DivX DivXHD AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
-mm.enable.qcom_parser=3314291
-
-# Enable AwesomePlayer stats
-persist.debug.sf.statistics=1
-
-# Print clip name being played
-media.stagefright.log-uri=1
-
-# VIDC: debug_levels
-# 1:ERROR 2:HIGH 4:LOW 0:NOLOGS 7:AllLOGS
-vidc.debug.level=1
-
-# Additional i/p buffer in case of encoder DCVS
-vidc.enc.dcvs.extra-buff-count=2
-
-#
-# system props for the data modules
-#
-ro.use_data_netmgrd=true
-persist.data.netmgrd.qos.enable=true
-persist.data.mode=concurrent
-ro.data.large_tcp_window_size=true
-ro.ril.multi_rat_capable=true
-
-#system props for time-services
-persist.timed.enable=true
-
-#
-# system prop for opengles version
-#
-# 196608 is decimal for 0x30000 to report major/minor versions as 3/0
-# 196609 is decimal for 0x30001 to report major/minor versions as 3/1
-ro.opengles.version=196609
-
-# System property for cabl
-ro.qualcomm.cabl=0
-
+#[+LEUI BEGIN] [wapi] [wifi] added
+ro.letv.wifi.wapi=false
+#[+LEUI END] [wapi] [wifi] added
+# now ts/m2ts use mmparser
+# change mmparser to google parser for flac MOBILEP-20978 [20151111]
+mm.enable.qcom_parser=3184243
 #
 # System props for telephony
 # System prop to turn on CdmaLTEPhone always
 telephony.lteOnCdmaDevice=1
-ril.ecclist=112,911,110,122,119,120,000,118
-ril.ecclist1=112,911,110,122,119,120,000,118
-
-#
-# System props for bluetooth
-# System prop to turn on hfp client
-bluetooth.hfp.client=1
-
-
-#Simulate sdcard on /data/media
-#
-persist.fuse_sdcard=true
-
-#system prop for Bluetooth SOC type
-qcom.bluetooth.soc=rome
-
-#system prop for A4WP profile support
-ro.bluetooth.a4wp=false
-
-#system prop for wipower support
-ro.bluetooth.wipower=false
-
 #
 #snapdragon value add features
 #
 ro.qc.sdk.audio.ssr=false
 ##fluencetype can be "fluence" or "fluencepro" or "none"
-ro.qc.sdk.audio.fluencetype=fluence
+ro.qc.sdk.audio.fluencetype=none
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=false
+persist.audio.fluence.speaker=true
 
 ro.qc.sdk.sensors.gestures=true
 ro.qc.sdk.gestures.camera=false
@@ -152,13 +62,17 @@ audio.offload.gapless.enabled=true
 audio.offload.buffer.size.kb=32
 
 #Enable offload audio video playback by default
-av.offload.enable=true
+av.offload.enable=false
 
 #Disable 16 bit PCM offload by default
-audio.offload.pcm.16bit.enable=false
+audio.offload.pcm.16bit.enable=true
 
 #Enable 24 bit PCM offload by default
 audio.offload.pcm.24bit.enable=true
+
+#audio.offload.min.duration.secs=1
+dmid=206171134
+audio.ds1.metainfo.key=273
 
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
@@ -167,8 +81,6 @@ persist.hwc.enable_vds=1
 ro.vendor.at_library=libqti-at.so
 ro.vendor.gt_library=libqti-gt.so
 sys.games.gt.prof=1
-sys.apps.hwaccel.enable=1
-
 #hwui properties
 ro.hwui.texture_cache_size=72
 ro.hwui.layer_cache_size=48
@@ -181,27 +93,53 @@ ro.hwui.text_small_cache_width=1024
 ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
+#AudioFlinger standby time
+ro.audio.flinger_standbytime_ms=3000
 
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
-
-#selects CoreSight configuration to enable
-persist.debug.coresight.config=none
-
-#System property for FM transmitter
-ro.fm.transmitter=false
-
 #Enable property to enable ds2
 audio.dolby.ds2.enabled=true
 
-#Dolby DS1 DOLBY_UDC
-dmid=3067269873
-audio.ds1.metainfo.key=273
-
 #enable property for hard bypass
 audio.dolby.ds2.hardbypass=true
-
 audio.offload.passthrough=false
-audio.offload.multiple.enabled=true
+audio.offload.multiple.enabled=false
+#set prtsist.radio.multisim.config as dsds acquiescently added by quanfengjie@ Ticket: 514
+persist.radio.multisim.config=dsds
+#enable default TZ to "Asia/Shanghai"
+persist.sys.timezone=Asia/Shanghai
+#add for dts enable
+audio.hwacceffects.needed=false
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+use.dts_eagle=true
+audio.offload.disable=false
+#set persist.radio.no_cons_man_roam as 1 can't pop up error dialog added by yuxuewei@ Ticket: 5677
+persist.radio.no_cons_man_roam=1
 
-ro.telephony.default_cdma_sub=0
+#set persist.radio.ignore_dom_time as 5. ignore short OOS added by zhouzhongqian@ Ticket: 9650
+persist.radio.ignore_dom_time=5
+#enable Apical AD
+ro.qcom.ad=1
+ro.qcom.ad.calib.data=/system/etc/ad_calib.cfg
+
+#send 3gpp2 MO SMS on traffic channel added by quanfengjie@ Ticket: 16659
+persist.radio.force_on_dc=true
+#
+# ADDITIONAL_BUILD_PROPERTIES
+#
+ro.vendor.maxbrightness=4095
+ro.product.locale.language=zh
+ro.product.locale.region=CN
+dolby.monospeaker=true
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+ro.adb.qemud=1
+ro.vendor.extension_library=libqti-perfd-client.so
+persist.radio.apm_sim_not_pwdn=1
+#GPS
+persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+ro.pip.gated=0
