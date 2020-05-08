@@ -3,13 +3,13 @@ Copyright (C) 2016 The CyanogenMod Project
 Copyright (C) 2017-2019 The LineageOS Project
 
 Device configuration for Letv Le Max 1
-=====================================
+======================================
 
 Don't forget to download these too:
 
 | Destination directory      | Git source                                                                |
 |:--------------------------:|:-------------------------------------------------------------------------:|
-| kernel/letv/msm8994        | https://github.com:alexsmithbr/android_kernel_letv_msm8994           |
+| kernel/letv/msm8994        | https://github.com/alexsmithbr/android_omni_kernel_letv_msm8994.git       |
 
 Device specifications:
 
