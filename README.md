@@ -9,8 +9,7 @@ Don't forget to download these too:
 
 | Destination directory      | Git source                                                                |
 |:--------------------------:|:-------------------------------------------------------------------------:|
-| device/letv/msm8994_common | https://github.com/alexsmithbr/android_lineage_device_letv_msm8994-common |
-| kernel/letv/msm8994        | https://github.com:alexsmithbr/android_omni_kernel_letv_msm8994           |
+| kernel/letv/msm8994        | https://github.com:alexsmithbr/android_kernel_letv_msm8994           |
 
 Device specifications:
 
