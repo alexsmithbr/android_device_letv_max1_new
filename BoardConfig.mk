@@ -58,8 +58,8 @@ TARGET_USES_64_BIT_BINDER := true
 # This is in case we want more memory for ramoops
 #BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 mem=3G ramoops.mem_address=0xc0000001 ramoops.mem_size=0x00f00000 ramoops.dump_oops=1 ramoops.ecc=1 buildvariant=userdebug
 # This is compatible with our current twrp recovery
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 mem=3G ramoops.mem_address=0xc0000000 ramoops.mem_size=0x00100000 ramoops.dump_oops=1 ramoops.ecc=1 buildvariant=userdebug
-ramoops.mem_address=0xc0000000 ramoops.mem_size=0x00100000
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 mem=3G ramoops.mem_address=0xc0000000 ramoops.mem_size=0x00400000 ramoops.dump_oops=1 ramoops.ecc=1 buildvariant=userdebug
+
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DT := true
@@ -193,7 +193,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RECOVERY_FSTAB := device/letv/max1/rootdir/etc/fstab.qcom
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy-legacy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += device/letv/max1/sepolicy
 

@@ -74,11 +74,6 @@
          Must be in the range specified by minimum and maximum. -->
     <integer name="config_screenBrightnessSettingDefault">60</integer>
 
-    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
-         it causes the device to wake up.
-         The default is false. -->
-    <bool name="config_lidControlsSleep">true</bool>
-
     <!-- Default color for notification LED is white. -->
     <color name="config_defaultNotificationColor">#ffffffff</color>
 
@@ -349,11 +344,11 @@
 
     <!-- The list absolute paths of jar/apk files containing the device specific handlers,
          delimited by File.pathSeparator, which defaults to ":" on Android -->
-    <string name="config_deviceKeyHandlerLib" translatable="false">/system/framework/com.lineageos.keyhandler.jar</string>
+    <string name="config_deviceKeyHandlerLib" translatable="false">/system/framework/org.lineageos.keyhandler.jar</string>
 
     <!-- Full qualified name of the class that implements
          com.android.internal.os.DeviceKeyHandler interface. -->
-    <string name="config_deviceKeyHandlerClass" translatable="false">com.lineageos.settings.device.KeyHandler</string>
+    <string name="config_deviceKeyHandlerClass" translatable="false">org.lineageos.settings.device.KeyHandler</string>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting

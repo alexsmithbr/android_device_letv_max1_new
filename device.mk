@@ -50,6 +50,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.rc \
     init.target.rc \
+    init.recovery.max1.rc \
     ueventd.qcom.rc
 
 # Qcom init scripts for /etc
@@ -63,9 +64,9 @@ PRODUCT_PACKAGES += \
 
 # Keyhandler
 PRODUCT_PACKAGES += \
-    com.lineageos.keyhandler
+    org.lineageos.keyhandler
 
-PRODUCT_SYSTEM_SERVER_JARS += com.lineageos.keyhandler
+PRODUCT_SYSTEM_SERVER_JARS += org.lineageos.keyhandler
 
 # Permissions
 PRODUCT_COPY_FILES += \

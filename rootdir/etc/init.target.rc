@@ -28,7 +28,7 @@
 #
 
 on early-init
-    mkdir /bootvideo 0771 system system
+    //mkdir /bootvideo 0771 system system
     mkdir /firmware 0771 system system
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
@@ -39,8 +39,8 @@ on fs
 
     mount_all fstab.qcom
 
-    wait /dev/block/bootdevice/by-name/bootvideo
-    mount ext4 /dev/block/bootdevice/by-name/bootvideo /bootvideo nosuid nodev barrier=1
+    //wait /dev/block/bootdevice/by-name/bootvideo
+    //mount ext4 /dev/block/bootdevice/by-name/bootvideo /bootvideo nosuid nodev barrier=1
 
     wait /dev/block/bootdevice/by-name/persist
     mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
